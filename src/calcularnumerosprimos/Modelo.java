@@ -1,6 +1,7 @@
 package calcularnumerosprimos;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Modelo {
 
-    ArrayList <Integer> primos = new ArrayList <> ();
+    ArrayList<Integer> primos = new ArrayList<>();
 
     int digitos;
 
@@ -19,20 +20,23 @@ public class Modelo {
         this.digitos = digitos;
     }
 
-    public ArrayList<Integer> getPrimos() {
-        return primos;
-    }
-
-    public void setPrimos(ArrayList<Integer> primos) {
-        this.primos = primos;
-    }
-
     public int getDigitos() {
         return digitos;
     }
 
-    public void setDigitos(int digitos) {
-        this.digitos = digitos;
+    public void setDigitos() {
+
+        int num;
+
+        do {
+
+            String respuesta = JOptionPane.showInputDialog(null, "Introduzca un límite para encontrar los primos deseados" + "\n 1 = 9    2 = 99    3 = 999    4 = 9999");
+
+            num = Integer.parseInt(respuesta);
+
+        } while (num < 1 || num > 4);
+
+        this.digitos = num;
     }
 
 }
